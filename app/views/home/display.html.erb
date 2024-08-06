@@ -8,3 +8,52 @@
 
 <a href="<%= params["recipe_url"] %>"><%= params["recipe_url"] %></a>
 
+<img src="<%= @recipe_data["image"][0] %>" alt="recipe image">
+
+<p>
+  <b>Prep Time:</b> <%= @recipe_data["prepTime"] %>
+</p>
+
+<p>
+  <b>Cook Time:</b> <%= @recipe_data["cookTime"] %>
+</p>
+
+<p>
+  <b>Total Time:</b> <%= @recipe_data["totalTime"] %>
+</p>
+
+<h2>
+  Ingredients
+</h2>
+
+<form>
+  <% @recipe_data["recipeIngredient"].each do |ingredient| %>
+    <div>
+      <input type="checkbox" id="<%= ingredient.underscore %>">
+      <label for="<%= ingredient.underscore %>"><%= ingredient %></label>
+    </div>
+  <% end %>
+</form>
+
+<h2>
+  Steps
+</h2>
+
+<ol>
+  <% @recipe_data["recipeInstructions"].each do |step| %>
+    <li>
+      <%= step["text"] %>
+    </li>
+  <% end %>
+</ol>
+
+<h2>
+  Notes
+</h2>
+
+<br>
+<br>
+
+<p>
+  #Recipe #RecipeTest
+</p>
