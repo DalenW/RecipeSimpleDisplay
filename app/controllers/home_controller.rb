@@ -7,13 +7,16 @@ class HomeController < ApplicationController
   end
 
   def display
-    recipe_url = params[:recipe_url]
+    recipe_url_param = params[:recipe_url]
+
+    # decode the url from base 64
+    @recipe_url = Base64.decode64(recipe_url_param.to_s)
 
     # make sure it's a valid url
-    if recipe_url.present? && recipe_url.match?(URI::DEFAULT_PARSER.make_regexp)
+    if @recipe_url.present? && @recipe_url.match?(URI::DEFAULT_PARSER.make_regexp)
       # get the recipe
 
-      response = RestClient.get(recipe_url)
+      response = RestClient.get(@recipe_url)
 
       if response.code != 200
         # respond with an error message

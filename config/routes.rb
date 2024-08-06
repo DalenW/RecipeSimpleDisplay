@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   root "home#index"
 
   match "/" => "home#display", via: [:post, :patch, :put]
+  match "/display/:recipe_url" => "home#display", via: [:get]
 end

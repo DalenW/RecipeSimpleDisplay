@@ -2,13 +2,21 @@
   <%= @recipe_data["name"] %>
 </h1>
 
+<br>
+
 <p>
   <%= @recipe_data["description"] %>
 </p>
 
-<a href="<%= params["recipe_url"] %>"><%= params["recipe_url"] %></a>
+<br>
+
+<a href="<%= @recipe_url %>"><%= @recipe_url %></a>
+
+<br>
 
 <img src="<%= @recipe_data["image"][0] %>" alt="recipe image">
+
+<br>
 
 <p>
   <b>Prep Time:</b> <%= @recipe_data["prepTime"] %>
@@ -22,6 +30,8 @@
   <b>Total Time:</b> <%= @recipe_data["totalTime"] %>
 </p>
 
+<br>
+
 <h2>
   Ingredients
 </h2>
@@ -34,6 +44,8 @@
     </div>
   <% end %>
 </form>
+
+<br>
 
 <h2>
   Steps
@@ -55,5 +67,5 @@
 <br>
 
 <p>
-  #Recipe #RecipeTest
+  #Recipe
 </p>
