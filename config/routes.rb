@@ -7,4 +7,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  root "home#index"
+
+  match "/" => "home#display", via: [:post, :patch, :put]
 end
